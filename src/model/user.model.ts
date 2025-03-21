@@ -1,4 +1,4 @@
-import { Document, Schema } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 
 export interface IMessage extends Document {
   content: string;
@@ -66,3 +66,7 @@ const userSchema = new Schema<IUser>({
   },
   messages: [messageSchema],
 });
+
+const UserModel = model<IUser>("User", userSchema);
+
+export default UserModel;
